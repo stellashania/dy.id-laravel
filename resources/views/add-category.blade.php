@@ -9,8 +9,9 @@
         <div class="add-product-wrapper">
             <h2 class="blue-text left">Insert New Category</h2>
 
-            <form action="" class="add-product form align-center">
-                <input type="text" placeholder="Category Name"><br>
+            <form action="/add-category" method="POST" class="add-product form align-center">
+                @csrf
+                <input type="text" name="name" placeholder="Category Name"><br>
                 <input type="submit" value="Add" class="add-btn">
             </form>
         </div>

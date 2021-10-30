@@ -7,7 +7,7 @@
 
                 <div class="dropdown-content">
                     <a href="view-product">View Product</a>
-                    <a href="#">Add Product</a>
+                    <a href="add-product">Add Product</a>
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
 
                 <div class="dropdown-content">
                     <a href="view-category">View Category</a>
-                    <a href="#">Add Category</a>
+                    <a href="add-category">Add Category</a>
                 </div>
             </div>
         </ul>

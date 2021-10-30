@@ -18,47 +18,25 @@
                     <th>Action</th>
                 </tr>
                 
+                @php
+                    $idx = 0;
+                @endphp 
+                @foreach($category as $item)
                 <tr>
-                    <td>1</td>
-                    <td>Television</td>
+                    <td>{{ ++$idx }}</td>
+                    <td>{{ $item->name}}</td>
                     <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
+                        <a href="/edit-category/{{ $item->id }}" class="yellow-btn">
+                            Update
                         </a>
-
-                        <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a>
+                        
+                        <form action="/delete-category/{{ $item->id }}" method="POST">
+                            @csrf
+                            <input type="submit" value="Delete" class="red-btn">
+                        </form>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>Laptop</td>
-                    <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
-                        </a>
-
-                        <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Smartphone</td>
-                    <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
-                        </a>
-
-                        <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a>
-                    </td>
-                </tr>
+                @endforeach
             </table>
         </div>
     </div>

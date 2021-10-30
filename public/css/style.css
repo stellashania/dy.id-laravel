@@ -194,6 +194,9 @@
     background-color: #FEC107;
     color: black;
     padding: 0.5rem;
+    text-decoration: none;
+    padding: 0.5rem 0.3rem;
+    font-size: 14px;
 }
 
 .add-btn{
@@ -213,6 +216,7 @@
     background-color: #d84e44;
     color: white;
     padding: 0.5rem;
+    margin-top: 0.7rem;
 }
 
 
@@ -410,10 +414,6 @@
     width: 60%;
 }
 
-.tbl-full td a:not(:last-child){
-    margin-right: 0.3rem;
-}
-
 .tbl-full th{
     text-align: left;
     background-color: #FFF3CD;
@@ -422,7 +422,6 @@
 .tbl-full tr:hover{
     background-color: #d6ccac;
 }
-
 
 .tbl-full img{
     width: 60px;

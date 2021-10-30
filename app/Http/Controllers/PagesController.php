@@ -29,11 +29,11 @@ class PagesController extends Controller
         return view('admin-index');
     }
 
-    public function viewProduct(){
-        return view('view-product');
-    }
+    // public function viewProduct(){
+    //     return view('view-product');
+    // }
 
-    public function viewCategory(){
-        return view('view-category');
-    }
+    // public function viewCategory(){
+    //     return view('view-category');
+    // }
 }

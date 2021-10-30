@@ -10,8 +10,9 @@
         <div class="add-product-wrapper">
             <h2 class="blue-text left">Edit Category</h2>
 
-            <form action="" class="add-product form align-center">
-                <input type="text" placeholder="Category Name"><br>
+            <form action="/edit-category/{{ $category->id }}" method="POST" class="add-product form align-center">
+                @csrf
+                <input type="text" name="name" placeholder="{{ $category->name }}"><br>
                 <input type="submit" value="Add" class="add-btn">
             </form>
         </div>

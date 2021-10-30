@@ -37,7 +37,7 @@
                     <td>
 
                         <a href="/edit-product/{{ $item->id }}" class="yellow-btn">
-                            update
+                            Update
                         </a>
 
                         <form action="/delete-product/{{ $item->id }}" method="POST">

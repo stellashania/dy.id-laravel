@@ -12,6 +12,7 @@
             </div>
 
             <div class="products">
+
                 <div class="products-row">
                     <div class="product">
                         <div class="product-img">
