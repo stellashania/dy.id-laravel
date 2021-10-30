@@ -51,14 +51,17 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function getEditProductPage()
+    public function getEditProductPage(Request $request)
     {
+        $id = $request->id;
+        
+        $selectedProduct = Product::where('id', $id)->first();
         $allCategories = Category::all();
 
         $data = [
+            'product' => $selectedProduct,
             'categories' => $allCategories
         ];
-
         return view('edit-product', $data);
     }
 
@@ -68,7 +71,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
-        $product->category = $request->category;
+        $product->category_id = $request->category;
 
         $file = $request->file("image");
 

@@ -9,15 +9,16 @@
         <div class="add-product-wrapper">
             <h2 class="blue-text left">Edit Product</h2>
 
-            <form action="/edit-product" method="post" enctype="multipart/form-data" class="add-product form align-center">
-                <input type="text" placeholder="Product Name" name ="name"><br>
-                <textarea name="description" id="" rows="4" placeholder="Product Description"></textarea>
-                <input type="text" placeholder="Product Price" name="price"><br>
+            <form action="/edit-product/{{ $product->id }}" method="post" enctype="multipart/form-data" class="add-product form align-center">
+                @csrf
+                <input type="text" placeholder="{{ $product->name }}" name ="name"><br>
+                <textarea name="description" id="" rows="4" placeholder="{{ $product->description }}"></textarea>
+                <input type="text" placeholder="{{ $product->price }}" name="price"><br>
                 <label for="product-cat">Product Category</label> <br>
-                <select name="product-cat" id="product-cat"> 
+                <select name="category" id="product-cat"> 
                     <option value="" selected disabled hidden>Choose One</option>
                     @foreach ($categories as $item)
-                        <option value= "{{ $item->id }}" >{{ $item->name }}</option>
+                        <option value= "{{ $item->id }}" {{ ( $item->id == $product->category_id) ? 'selected' : '' }}> {{ $item->name }}</option>
                      @endforeach                   
                 </select>
                 <br>

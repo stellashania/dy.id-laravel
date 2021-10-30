@@ -36,10 +36,9 @@
                     <td>{{ $item->category_id }}</td>
                     <td>
 
-                        <form action="/edit-product/{{ $item->id }}" method="POST">
-                            @csrf
-                            <input type="submit" value="Update" class="yellow-btn">
-                        </form>
+                        <a href="/edit-product/{{ $item->id }}" class="yellow-btn">
+                            update
+                        </a>
 
                         <form action="/delete-product/{{ $item->id }}" method="POST">
                             @csrf
