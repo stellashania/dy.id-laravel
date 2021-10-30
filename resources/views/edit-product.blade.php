@@ -9,20 +9,23 @@
         <div class="add-product-wrapper">
             <h2 class="blue-text left">Edit Product</h2>
 
-            <form action="" class="add-product form align-center">
-                <input type="text" placeholder="Product Name"><br>
-                <textarea name="" id="" rows="4" placeholder="Product Description"></textarea>
-                <input type="text" placeholder="Product Price"><br>
+            <form action="/edit-product" method="post" enctype="multipart/form-data" class="add-product form align-center">
+                <input type="text" placeholder="Product Name" name ="name"><br>
+                <textarea name="description" id="" rows="4" placeholder="Product Description"></textarea>
+                <input type="text" placeholder="Product Price" name="price"><br>
                 <label for="product-cat">Product Category</label> <br>
                 <select name="product-cat" id="product-cat"> 
                     <option value="" selected disabled hidden>Choose One</option>
+                    @foreach ($categories as $item)
+                        <option value= "{{ $item->id }}" >{{ $item->name }}</option>
+                     @endforeach                   
                 </select>
                 <br>
                 <label for="choose-file">Product Image</label> <br>
                 <label for="choose-file" class="custom-file-upload">
                     Choose File
                 </label>
-                <input type="file" id="choose-file" name="filename">
+                <input type="file" id="choose-file" name="image">
                 <br>
                 
                 <input type="submit" value="Add" class="add-btn">
