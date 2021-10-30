@@ -91,4 +91,13 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    public function deleteProduct(Request $request){
+        $id = $request->id;
+        $product = Product::where('id', $id)->first();
+        Storage::delete("public/products" . $product->image);
+        $product->delete();
+
+        return redirect()->back();
+    }
+
 }
