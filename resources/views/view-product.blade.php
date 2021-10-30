@@ -35,13 +35,11 @@
                     <td>{{ $item->price }}</td>
                     <td>{{ $item->category_id }}</td>
                     <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
-                        </a>
 
-                        {{-- <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a> --}}
+                        <form action="/edit-product/{{ $item->id }}" method="POST">
+                            @csrf
+                            <input type="submit" value="Update" class="yellow-btn">
+                        </form>
 
                         <form action="/delete-product/{{ $item->id }}" method="POST">
                             @csrf
