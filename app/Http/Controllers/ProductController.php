@@ -51,9 +51,44 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    public function getEditProductPage()
+    {
+        $allCategories = Category::all();
+
+        $data = [
+            'categories' => $allCategories
+        ];
+
+        return view('edit-product', $data);
+    }
+
     public function editProduct(Request $request)
     {
-        
+        $product = Product::find($request->id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category = $request->category;
+
+        $file = $request->file("image");
+
+        if ($file != null) {
+            // save name format: {currentTime}.{fileFormat}
+            $imageName = time() . "-" . $request->name . "." . $file->getClientOriginalExtension();
+            // save the image
+            Storage::putFileAs("public/products", $file, $imageName);
+    
+            // ideally, we want to override the older image file if it's updated
+            // notice that we no longer need to append `/images`
+            // since it is contained in the image file name
+            Storage::delete("public/products/" . $product->image);
+    
+            // point to the path of the image
+            $product->image = $imageName;
+        }
+
+        $product->save();
+        return redirect()->back();
     }
 
 }

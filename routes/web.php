@@ -30,8 +30,12 @@ Route::get('/member-index', [PagesController::class, 'memberIndex']);
 // ADMIN
 Route::get('/admin-index', [PagesController::class, 'adminIndex']);
 Route::get('/view-product', [ProductController::class, 'displayAll']);
+
 Route::get('/add-product', [ProductController::class, 'getAddProductPage']);
 Route::post('/add-product', [ProductController::class, 'addProduct']);
+
+Route::get('/edit-product/{id}', [ProductController::class, 'getEditProductPage']);
+Route::post('/edit-product/{id}', [ProductController::class, 'editProduct']);
 
 Route::get('/view-category', [PagesController::class, 'viewCategory']);
 
