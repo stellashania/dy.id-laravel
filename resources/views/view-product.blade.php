@@ -12,6 +12,7 @@
             </div>
 
             <table class="tbl-full">
+                
                 <tr>
                     <th>No</th>
                     <th>Product Image</th>
@@ -21,14 +22,18 @@
                     <th>Product Category</th>
                     <th>Action</th>
                 </tr>
-                
+
+                @php
+                    $idx = 0;
+                @endphp 
+                @foreach($products as $item)
                 <tr>
-                    <td>1</td>
-                    <td><img src="assets/samsungtv1.jpg" alt=""></td>
-                    <td>Samsung TV</td>
-                    <td>Wide Color Enhancer, Connect Share Transfer, HD Resolution</td>
-                    <td>20000000</td>
-                    <td>Television</td>
+                    <td>{{ ++$idx }}</td>
+                    <td><img src="../storage/products/{{ $item->image}}" alt=""></td>
+                    <td>{{ $item->name}}</td>
+                    <td>{{ $item->description }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->category_id }}</td>
                     <td>
                         <a href="#">
                             <button class="yellow-btn">Update</button>
@@ -39,60 +44,7 @@
                         </a>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td><img src="assets/samsungtv1.jpg" alt=""></td>
-                    <td>Samsung TV</td>
-                    <td>Wide Color Enhancer, Connect Share Transfer, HD Resolution</td>
-                    <td>20000000</td>
-                    <td>Television</td>
-                    <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
-                        </a>
-
-                        <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td><img src="assets/samsungtv1.jpg" alt=""></td>
-                    <td>Samsung TV</td>
-                    <td>Wide Color Enhancer, Connect Share Transfer, HD Resolution</td>
-                    <td>20000000</td>
-                    <td>Television</td>
-                    <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
-                        </a>
-
-                        <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td><img src="assets/samsungtv1.jpg" alt=""></td>
-                    <td>Samsung TV</td>
-                    <td>Wide Color Enhancer, Connect Share Transfer, HD Resolution</td>
-                    <td>20000000</td>
-                    <td>Television</td>
-                    <td>
-                        <a href="#">
-                            <button class="yellow-btn">Update</button>
-                        </a>
-
-                        <a href="#">
-                            <button class="red-btn">Delete</button>
-                        </a>
-                    </td>
-                </tr>
+                @endforeach
             </table>
         </div>
     </div>

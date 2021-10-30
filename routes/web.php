@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,10 @@ Route::get('/member-index', [PagesController::class, 'memberIndex']);
 
 // ADMIN
 Route::get('/admin-index', [PagesController::class, 'adminIndex']);
-Route::get('/view-product', [PagesController::class, 'viewProduct']);
+Route::get('/view-product', [ProductController::class, 'displayAll']);
+Route::get('/add-product', [ProductController::class, 'getAddProductPage']);
+Route::post('/add-product', [ProductController::class, 'addProduct']);
+
 Route::get('/view-category', [PagesController::class, 'viewCategory']);
 
 
