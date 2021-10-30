@@ -32,6 +32,7 @@ Route::get('/admin-index', [PagesController::class, 'adminIndex']);
 Route::get('/view-product', [ProductController::class, 'displayAll']);
 Route::get('/add-product', [ProductController::class, 'getAddProductPage']);
 Route::post('/add-product', [ProductController::class, 'addProduct']);
+Route::post('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
 
 Route::get('/view-category', [PagesController::class, 'viewCategory']);
 

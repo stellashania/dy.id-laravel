@@ -39,9 +39,14 @@
                             <button class="yellow-btn">Update</button>
                         </a>
 
-                        <a href="#">
+                        {{-- <a href="#">
                             <button class="red-btn">Delete</button>
-                        </a>
+                        </a> --}}
+
+                        <form action="/delete-product/{{ $item->id }}" method="POST">
+                            @csrf
+                            <input type="submit" value="Delete" class="red-btn">
+                        </form>
                     </td>
                 </tr>
                 @endforeach
