@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/login', [PagesController::class, 'login']);
 Route::get('/register', [PagesController::class, 'register']);
+Route::get('/detail-product/{id}', [ProductController::class, 'getDetailProduct']);
+
 
 // MEMBER ===========================================================================================================
 // Route::get('/member-index', [PagesController::class, 'memberIndex']);

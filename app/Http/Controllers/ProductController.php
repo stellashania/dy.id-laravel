@@ -159,4 +159,13 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    public function getDetailProduct(Request $request){
+        $product = Product::find($request->id);
+
+        $data = [
+            'selectedProduct' => $product
+        ];
+
+        return view('detail-product', $data);
+    }
 }

@@ -9,41 +9,41 @@
         <div class="detail-product-wrapper flex">
             <div class="detail-product-left">
                 <div class="detail-product-img">
-                    <img src="assets/samsungtv1.jpg" alt="">
+                    <img src="/storage/products/{{$selectedProduct->image}}" alt="">
                 </div>
             </div>
 
             <div class="detail-product-right">
                 <div class="detail-product-contents">
                     <div class="detail-product-content">
-                        <h2>Samsung TV</h2>
+                        <h2>{{ $selectedProduct->name }}</h2>
                     </div>
 
                     <hr>
 
                     <div class="detail-product-content">
                         <h3>Category:</h3>
-                        <p>TV</p>
+                        <p>{{ $selectedProduct->category->name }}</p>
                     </div>
 
                     <hr>
 
                     <div class="detail-product-content">
                         <h3>Price:</h3>
-                        <p>IDR. 20.000.000</p>
+                        <p>{{ $selectedProduct->price }}</p>
                     </div>
 
                     <hr>
 
                     <div class="detail-product-content">
                         <h3>Description:</h3>
-                        <p>Witness the high quality TV with new technology from Samsung</p>
+                        <p>{{ $selectedProduct->description }}</p>
                     </div>
                     <hr>
                 </div>
 
                 <div class="detail-product-btn">
-                    <a href="#">
+                    <a href="/login">
                         <button class="yellow-btn">Login to buy</button>
                     </a>
                 </div>

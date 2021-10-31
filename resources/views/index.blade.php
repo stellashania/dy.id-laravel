@@ -29,8 +29,8 @@
                         </div>
 
                         <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
+                            <a href="/detail-product/{{ $item->id }}" class="yellow-btn">
+                                More Detail
                             </a>
                         </div>
                     </div>

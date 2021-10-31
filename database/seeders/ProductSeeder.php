@@ -38,17 +38,40 @@ class ProductSeeder extends Seeder
             'image' => 'LenovoLegion.jpg'
         ]);
         Product::create([
-            'category_id' => 3,
+            'category_id' => 1,
             'name' => 'Lenovo Legion',
             'description' => 'This is a gaming laptop',
             'price' => 696969690,
             'image' => 'LenovoLegion.jpg'
         ]);
+
+        Product::create([
+            'category_id' => 1,
+            'name' =>  'Macbook air',
+            'description' => 'This is a gaming laptop',
+            'price' => 69623490,
+            'image' => 'LenovoLegion.jpg'
+        ]);
+        Product::create([
+            'category_id' => 2,
+            'name' =>  'Macbook air',
+            'description' => 'This is a gaming laptop',
+            'price' => 69623490,
+            'image' => 'LenovoLegion.jpg'
+        ]);
         Product::create([
             'category_id' => 3,
-            'name' => 'Lenovo Legion',
+            'name' =>  'Macbook air',
             'description' => 'This is a gaming laptop',
-            'price' => 696969690,
+            'price' => 69623490,
+            'image' => 'LenovoLegion.jpg'
+        ]);
+
+        Product::create([
+            'category_id' => 2,
+            'name' =>  'Macbook air',
+            'description' => 'This is a gaming laptop',
+            'price' => 69623490,
             'image' => 'LenovoLegion.jpg'
         ]);
     }
