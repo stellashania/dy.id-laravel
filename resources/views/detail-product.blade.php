@@ -1,5 +1,10 @@
+@extends('layouts.app')
 
+@section('title')
+    <title>Detail Product</title>
+@endsection
 
+@section('content')
     <div class="content flex justify-center">
         <div class="detail-product-wrapper flex">
             <div class="detail-product-left">
@@ -45,3 +50,4 @@
             </div>
         </div>
     </div>
+@endsection

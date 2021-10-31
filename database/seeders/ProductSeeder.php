@@ -37,5 +37,19 @@ class ProductSeeder extends Seeder
             'price' => 696969690,
             'image' => 'LenovoLegion.jpg'
         ]);
+        Product::create([
+            'category_id' => 3,
+            'name' => 'Lenovo Legion',
+            'description' => 'This is a gaming laptop',
+            'price' => 696969690,
+            'image' => 'LenovoLegion.jpg'
+        ]);
+        Product::create([
+            'category_id' => 3,
+            'name' => 'Lenovo Legion',
+            'description' => 'This is a gaming laptop',
+            'price' => 696969690,
+            'image' => 'LenovoLegion.jpg'
+        ]);
     }
 }
