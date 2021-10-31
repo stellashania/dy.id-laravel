@@ -1,7 +1,7 @@
 @extends('layouts.member-app')
 
 @section('title')
-    <title>Member Home</title>
+    <title>Detail Product</title>
 @endsection
 
 @section('content')

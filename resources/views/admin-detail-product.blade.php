@@ -1,7 +1,7 @@
 @extends('layouts.admin-app')
 
 @section('title')
-    <title>Admin Home</title>
+    <title>Detail Product</title>
 @endsection
 
 @section('content')
