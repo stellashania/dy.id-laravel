@@ -13,136 +13,31 @@
 
             <div class="products">
 
-                <div class="products-row">
+                @foreach ($products as $item)
                     <div class="product">
                         <div class="product-img">
-                            <img src="{{ URL('assets/samsungtv1.jpg') }}" alt="">
+                            <img src="./storage/products/{{$item->image}}" alt="">
                         </div>
 
                         <div class="product-desc flex space-between">
-                            <h3>Samsung TV</h3>
-                            <p>Television</p>
+                            <h3>{{ $item->name }}</h3>
+                            <p>{{ $item->category->name }}</p>
                         </div>
 
                         <div class="product-price">
-                            <p>IDR. 21.000.000</p>
+                            <p>IDR. {{$item->price}}</p>
                         </div>
 
                         <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
+                            <a href="/admin-detail-product/{{ $item->id }}" class="yellow-btn">
+                                More Detail
                             </a>
                         </div>
                     </div>
-
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL('assets/samsungtv1.jpg') }}" alt="">
-                        </div>
-
-                        <div class="product-desc flex space-between">
-                            <h3>Samsung TV</h3>
-                            <p>Television</p>
-                        </div>
-
-                        <div class="product-price">
-                            <p>IDR. 21.000.000</p>
-                        </div>
-
-                        <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL('assets/samsungtv1.jpg') }}" alt="">
-                        </div>
-
-                        <div class="product-desc flex space-between">
-                            <h3>Samsung TV</h3>
-                            <p>Television</p>
-                        </div>
-
-                        <div class="product-price">
-                            <p>IDR. 21.000.000</p>
-                        </div>
-
-                        <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="products-row">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL('assets/samsungtv1.jpg') }}" alt="">
-                        </div>
-
-                        <div class="product-desc flex space-between">
-                            <h3>Samsung TV</h3>
-                            <p>Television</p>
-                        </div>
-
-                        <div class="product-price">
-                            <p>IDR. 21.000.000</p>
-                        </div>
-
-                        <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL('assets/samsungtv1.jpg') }}" alt="">
-                        </div>
-
-                        <div class="product-desc flex space-between">
-                            <h3>Samsung TV</h3>
-                            <p>Television</p>
-                        </div>
-
-                        <div class="product-price">
-                            <p>IDR. 21.000.000</p>
-                        </div>
-
-                        <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL('assets/samsungtv1.jpg') }}" alt="">
-                        </div>
-
-                        <div class="product-desc flex space-between">
-                            <h3>Samsung TV</h3>
-                            <p>Television</p>
-                        </div>
-
-                        <div class="product-price">
-                            <p>IDR. 21.000.000</p>
-                        </div>
-
-                        <div class="product-detail-btn">
-                            <a href="#">
-                                <button class="yellow-btn">More Detail</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
+            {{$products->links()}}
         </div>
     </div>
 @endsection

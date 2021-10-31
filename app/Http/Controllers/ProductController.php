@@ -9,6 +9,62 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+
+    public function index(){
+        $allProduct = Product::all();
+
+        $data = [
+            'products' => $allProduct
+        ];
+
+        return view('index', $data);
+    }
+
+    public function memberIndex(){
+        $allProduct = Product::all();
+
+        $data = [
+            'products' => $allProduct
+        ];
+
+        return view('member-index', $data);
+    }
+
+    public function adminIndex(){
+        // $allProduct = Product::all();
+        $allProduct = Product::paginate(6);
+
+        $data = [
+            'products' => $allProduct
+        ];
+
+        return view('admin-index', $data);
+    }
+
+    public function getAdminDetailProduct(Request $request){
+        $id = $request->id;
+
+        $product = Product::where('id', $id)->first();
+
+        $data = [
+            'product' => $product
+        ];
+
+        return view('admin-detail-product', $data);
+    }
+
+    public function getMemberDetailProduct(Request $request){
+        $id = $request->id;
+
+        $product = Product::where('id', $id)->first();
+
+        $data = [
+            'product' => $product
+        ];
+
+        return view('member-detail-product', $data);
+    }
+
     public function displayAll()
     {
         $allProduct = Product::all();

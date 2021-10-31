@@ -20,20 +20,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-// GUEST
-Route::get('/', [PagesController::class, 'guestIndex']);
+// GUEST ============================================================================================================
+// Route::get('/', [PagesController::class, 'guestIndex']);
+Route::get('/', [ProductController::class, 'index']);
 Route::get('/login', [PagesController::class, 'login']);
 Route::get('/register', [PagesController::class, 'register']);
 
-// MEMBER
-Route::get('/member-index', [PagesController::class, 'memberIndex']);
+// MEMBER ===========================================================================================================
+// Route::get('/member-index', [PagesController::class, 'memberIndex']);
+Route::get('/member-index', [ProductController::class, 'memberIndex']);
+Route::get('/member-detail-product/{id}', [ProductController::class, 'getMemberDetailProduct']);
 
-// ADMIN
-Route::get('/admin-index', [PagesController::class, 'adminIndex']);
-// Route::get('/admin-index', [ProductController::class, 'getAdminHomePage']);
+// ADMIN ============================================================================================================
+// Route::get('/admin-index', [PagesController::class, 'adminIndex']);
+Route::get('/admin-index', [ProductController::class, 'adminIndex']);
+
+Route::get('/admin-detail-product/{id}', [ProductController::class, 'getAdminDetailProduct']);
 
 Route::get('/view-product', [ProductController::class, 'displayAll']);
-
 Route::get('/add-product', [ProductController::class, 'getAddProductPage']);
 Route::post('/add-product', [ProductController::class, 'addProduct']);
 Route::post('/delete-product/{id}', [ProductController::class, 'deleteProduct']);
