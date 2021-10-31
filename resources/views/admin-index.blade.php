@@ -37,7 +37,7 @@
                 @endforeach
             </div>
 
-            {{$products->links()}}
+            {{$products->links('vendor.pagination.custom')}}
         </div>
     </div>
 @endsection
