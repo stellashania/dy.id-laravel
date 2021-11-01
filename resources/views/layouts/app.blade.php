@@ -17,11 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" > --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+ 
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -73,11 +76,21 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
+        </nav> --}}
+        <div class="header-top">
+            @include('layouts.top-header')
+        </div>
+    
+        <div class="header-menu">
+            @include('layouts.bottom-header')
+        </div>
         <main class="py-4">
             @yield('content')
         </main>
+        <div class="footer">
+            @include('layouts.footer')
+        </div>
+        
     </div>
 </body>
 </html>
