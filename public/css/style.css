@@ -81,6 +81,13 @@
     padding: 0.5rem 0;
 }
 
+.product-wrapper{
+    width: 98%;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    padding-left: 5rem;
+}
+
 .wrapper flex align-center{
     width: 100;
     margin: 0 0;
@@ -206,7 +213,6 @@
 .products{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 /* .products-row{
@@ -234,9 +240,8 @@
 }
 
 .product-img img{
-    /* width: 100%; */
     width: auto;
-    height: 18rem;
+    height: 15rem;
 }
 
 .product-desc{

@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
 
     public function index(){
-        $allProduct = Product::all();
+        $allProduct = Product::paginate(6);
 
         $data = [
             'products' => $allProduct
@@ -21,7 +21,8 @@ class ProductController extends Controller
     }
 
     public function memberIndex(){
-        $allProduct = Product::all();
+        $allProduct = Product::paginate(6);
+
 
         $data = [
             'products' => $allProduct
@@ -31,7 +32,6 @@ class ProductController extends Controller
     }
 
     public function adminIndex(){
-        // $allProduct = Product::all();
         $allProduct = Product::paginate(6);
 
         $data = [

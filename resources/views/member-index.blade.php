@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="content">
-        <div class="wrapper">
+        <div class="product-wrapper">
             <div class="content-title">
                 <h2 class="text-center">New Products</h2>
             </div>
@@ -37,6 +37,8 @@
                 @endforeach
 
             </div>
+            {{$products->links('vendor.pagination.custom')}}
         </div>
     </div>
+    
 @endsection
