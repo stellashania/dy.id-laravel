@@ -84,7 +84,7 @@
         <div class="header-menu">
             @include('layouts.bottom-header')
         </div>
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
         <div class="footer">
