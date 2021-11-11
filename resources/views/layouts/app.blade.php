@@ -19,6 +19,7 @@
     <!-- Styles -->
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" > --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
  
 </head>
@@ -81,7 +82,7 @@
             @include('layouts.top-header')
         </div>
     
-        <div class="header-menu">
+        <div class="header-menu" style="padding-bottom: 0rem">
             @include('layouts.bottom-header')
         </div>
         <main>
