@@ -20,6 +20,16 @@
                     <label for="female">Female</label>
                 </div>
                 <br>
+
+                <textarea id="address" name="address" class="form-control @error('address') is-invalid @enderror" 
+                name="address" value="{{ old('address') }}" required autocomplete="address" autofocus rows="4" cols="50" placeholder="Enter your address"></textarea>
+                @error('address')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <br>
+
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email"><br>
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -35,10 +45,19 @@
                 @enderror
 
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                <br>
+
+                <label for="role">Role</label>
+                <div class="gender-radio">
+                    <input type="radio" name="role" id="member" value="member">
+                    <label for="member">Member</label>
+                    <input type="radio" name="role" id="admin" value="admin">
+                    <label for="admin">Admin</label>
+                </div>
 
                 <div class="terms-conditions">
-                    <input type="checkbox" id="I-agree" value="Agree">
-                    <label for="I-agree">I agree with terms & conditions</label><br>
+                    <input type="checkbox" id="agreement" value="Agree">
+                    <label for="agreement">I agree with terms & conditions</label><br>
                 </div>
                 <button type="submit" class="yellow-btn" id="register-btn">
                     {{ __('Register') }}

@@ -12,5 +12,6 @@
         <a href="register">
             <button>Register</button>
         </a>
+        
     </div>
 </div>

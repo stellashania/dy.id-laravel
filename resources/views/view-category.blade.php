@@ -26,14 +26,16 @@
                     <td>{{ ++$idx }}</td>
                     <td>{{ $item->name}}</td>
                     <td>
-                        <a href="/edit-category/{{ $item->id }}" class="yellow-btn">
-                            Update
-                        </a>
-                        
-                        <form action="/delete-category/{{ $item->id }}" method="POST">
-                            @csrf
-                            <input type="submit" value="Delete" class="red-btn">
-                        </form>
+                        <div class="flex">
+                            <a href="/edit-category/{{ $item->id }}" class="yellow-btn" style="margin-right: 0.5rem">
+                                Update
+                            </a>
+                            
+                            <form action="/delete-category/{{ $item->id }}" method="POST">
+                                @csrf
+                                <input type="submit" value="Delete" class="red-btn">
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach

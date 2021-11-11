@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="content">
-    <div class="login-wrapper">
+    <div class="login-wrapper" style="margin-top: 8%; margin-bottom:8%">
         <h2 class="blue-text left">Welcome Back</h2>
         
         <form method="POST" action="{{ route('login') }}" class="form flex align-center">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,29 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $allProduct = Product::paginate(6);
+
+        $data = [
+            'products' => $allProduct
+        ];
+        return view('index', $data);
+    }
+
+    public function memberIndex(){
+        $allProduct = Product::paginate(6);
+
+        $data = [
+            'products' => $allProduct
+        ];
+        return view('member-index', $data);
+    }
+
+    public function adminIndex(){
+        $allProduct = Product::paginate(6);
+
+        $data = [
+            'products' => $allProduct
+        ];
+        return view('admin-index', $data);
     }
 }

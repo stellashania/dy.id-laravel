@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,12 +31,12 @@ Route::get('/detail-product/{id}', [ProductController::class, 'getDetailProduct'
 
 // MEMBER ===========================================================================================================
 // Route::get('/member-index', [PagesController::class, 'memberIndex']);
-Route::get('/member-index', [ProductController::class, 'memberIndex']);
+// Route::get('/member-index', [ProductController::class, 'memberIndex']);
 Route::get('/member-detail-product/{id}', [ProductController::class, 'getMemberDetailProduct']);
 
 // ADMIN ============================================================================================================
 // Route::get('/admin-index', [PagesController::class, 'adminIndex']);
-Route::get('/admin-index', [ProductController::class, 'adminIndex']);
+// Route::get('/admin-index', [ProductController::class, 'adminIndex']);
 
 Route::get('/admin-detail-product/{id}', [ProductController::class, 'getAdminDetailProduct']);
 
@@ -53,7 +54,20 @@ Route::post('/delete-category/{id}', [CategoryController::class, 'deleteCategory
 Route::get('/edit-category/{id}', [CategoryController::class, 'getEditCategoryPage']);
 Route::post('/edit-category/{id}', [CategoryController::class, 'editCategory']);
 
+
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/member-index', [HomeController::class, 'memberIndex'])->middleware('role:member');;
+Route::get('/admin-index', [HomeController::class, 'adminIndex'])->middleware('role:admin');
