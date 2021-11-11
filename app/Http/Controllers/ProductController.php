@@ -32,6 +32,10 @@ class ProductController extends Controller
     }
 
     public function adminIndex(){
+<<<<<<< Updated upstream
+=======
+        // $allProduct = Product::all()->paginate(6);
+>>>>>>> Stashed changes
         $allProduct = Product::paginate(6);
 
         $data = [

@@ -10,6 +10,18 @@ class Product extends Model
     use HasFactory;
     protected $fillable = ['name', 'category_id', 'description', 'price', 'rating'];
 
+    public function transactions()
+    {
+        return $this->belongsToMany('Transaction', 'TransactionDetail')
+            ->withPivot('quantity');
+    }
+
+    public function carts()
+    {
+        return $this->belongsToMany('Cart', 'CartDetail')
+            ->withPivot('quantity');
+    }
+
     public function category(){
         return $this->belongsTo(Category::class);
     }

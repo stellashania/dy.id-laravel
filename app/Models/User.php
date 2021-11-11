@@ -19,9 +19,20 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'gender',
+        'address',
         'email',
         'password',
+        'role'
     ];
+
+    public function cart(){
+        return $this->hasOne(Cart::class);
+    }
+
+    public function transactions(){
+        return $this->hasMany(Transaction::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,7 +54,27 @@ Route::post('/delete-category/{id}', [CategoryController::class, 'deleteCategory
 Route::get('/edit-category/{id}', [CategoryController::class, 'getEditCategoryPage']);
 Route::post('/edit-category/{id}', [CategoryController::class, 'editCategory']);
 
+<<<<<<< Updated upstream
+Auth::routes();
+=======
+
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Auth::routes();
+>>>>>>> Stashed changes
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+<<<<<<< Updated upstream
+=======
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/member-index', [HomeController::class, 'memberIndex']);
+Route::get('/admin-index', [HomeController::class, 'adminIndex']);
+>>>>>>> Stashed changes
