@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $allProduct = Product::all();
+        $allProduct = Product::paginate(6);
 
         $data = [
             'products' => $allProduct
@@ -33,7 +33,7 @@ class HomeController extends Controller
     }
 
     public function memberIndex(){
-        $allProduct = Product::all();
+        $allProduct = Product::paginate(6);
 
         $data = [
             'products' => $allProduct

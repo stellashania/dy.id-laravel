@@ -31,12 +31,12 @@ Route::get('/detail-product/{id}', [ProductController::class, 'getDetailProduct'
 
 // MEMBER ===========================================================================================================
 // Route::get('/member-index', [PagesController::class, 'memberIndex']);
-Route::get('/member-index', [ProductController::class, 'memberIndex']);
+// Route::get('/member-index', [ProductController::class, 'memberIndex']);
 Route::get('/member-detail-product/{id}', [ProductController::class, 'getMemberDetailProduct']);
 
 // ADMIN ============================================================================================================
 // Route::get('/admin-index', [PagesController::class, 'adminIndex']);
-Route::get('/admin-index', [ProductController::class, 'adminIndex']);
+// Route::get('/admin-index', [ProductController::class, 'adminIndex']);
 
 Route::get('/admin-detail-product/{id}', [ProductController::class, 'getAdminDetailProduct']);
 
@@ -54,27 +54,20 @@ Route::post('/delete-category/{id}', [CategoryController::class, 'deleteCategory
 Route::get('/edit-category/{id}', [CategoryController::class, 'getEditCategoryPage']);
 Route::post('/edit-category/{id}', [CategoryController::class, 'editCategory']);
 
-<<<<<<< Updated upstream
-Auth::routes();
-=======
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
->>>>>>> Stashed changes
-
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-<<<<<<< Updated upstream
-=======
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/member-index', [HomeController::class, 'memberIndex']);
-Route::get('/admin-index', [HomeController::class, 'adminIndex']);
->>>>>>> Stashed changes
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/member-index', [HomeController::class, 'memberIndex'])->middleware('role:member');;
+Route::get('/admin-index', [HomeController::class, 'adminIndex'])->middleware('role:admin');
