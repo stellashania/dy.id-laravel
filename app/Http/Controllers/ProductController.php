@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
         $allProduct = Product::paginate(6);
 
         $data = [
@@ -20,49 +22,15 @@ class ProductController extends Controller
         return view('index', $data);
     }
 
-    public function memberIndex(){
-        $allProduct = Product::paginate(6);
-
-
-        $data = [
-            'products' => $allProduct
-        ];
-
-        return view('member-index', $data);
-    }
-
-    public function adminIndex(){
-        $allProduct = Product::paginate(6);
-
-        $data = [
-            'products' => $allProduct
-        ];
-
-        return view('admin-index', $data);
-    }
-
-    public function getAdminDetailProduct(Request $request){
-        $id = $request->id;
-
-        $product = Product::where('id', $id)->first();
+    public function getDetailProduct(Request $request)
+    {
+        $product = Product::find($request->id);
 
         $data = [
             'product' => $product
         ];
 
-        return view('admin-detail-product', $data);
-    }
-
-    public function getMemberDetailProduct(Request $request){
-        $id = $request->id;
-
-        $product = Product::where('id', $id)->first();
-
-        $data = [
-            'product' => $product
-        ];
-
-        return view('member-detail-product', $data);
+        return view('detail-product', $data);
     }
 
     public function displayAll()
@@ -110,7 +78,7 @@ class ProductController extends Controller
     public function getEditProductPage(Request $request)
     {
         $id = $request->id;
-        
+
         $selectedProduct = Product::where('id', $id)->first();
         $allCategories = Category::all();
 
@@ -136,12 +104,12 @@ class ProductController extends Controller
             $imageName = time() . "-" . $request->name . "." . $file->getClientOriginalExtension();
             // save the image
             Storage::putFileAs("public/products", $file, $imageName);
-    
+
             // ideally, we want to override the older image file if it's updated
             // notice that we no longer need to append `/images`
             // since it is contained in the image file name
             Storage::delete("public/products/" . $product->image);
-    
+
             // point to the path of the image
             $product->image = $imageName;
         }
@@ -150,22 +118,13 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    public function deleteProduct(Request $request){
+    public function deleteProduct(Request $request)
+    {
         $id = $request->id;
         $product = Product::where('id', $id)->first();
         Storage::delete("public/products" . $product->image);
         $product->delete();
 
         return redirect()->back();
-    }
-
-    public function getDetailProduct(Request $request){
-        $product = Product::find($request->id);
-
-        $data = [
-            'selectedProduct' => $product
-        ];
-
-        return view('detail-product', $data);
     }
 }

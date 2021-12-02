@@ -1,4 +1,8 @@
-@extends('layouts.admin-app')
+@extends('layouts.app')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+@endsection
 
 @section('title')
     <title>View Category</title>
@@ -17,27 +21,28 @@
                     <th>Category Name</th>
                     <th>Action</th>
                 </tr>
-                
+
                 @php
                     $idx = 0;
-                @endphp 
-                @foreach($category as $item)
-                <tr>
-                    <td>{{ ++$idx }}</td>
-                    <td>{{ $item->name}}</td>
-                    <td>
-                        <div class="flex">
-                            <a href="/edit-category/{{ $item->id }}" class="yellow-btn" style="margin-right: 0.5rem">
-                                Update
-                            </a>
-                            
-                            <form action="/delete-category/{{ $item->id }}" method="POST">
-                                @csrf
-                                <input type="submit" value="Delete" class="red-btn">
-                            </form>
-                        </div>
-                    </td>
-                </tr>
+                @endphp
+                @foreach ($category as $item)
+                    <tr>
+                        <td>{{ ++$idx }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>
+                            <div class="flex">
+                                <a href="/edit-category/{{ $item->id }}" class="yellow-btn"
+                                    style="margin-right: 0.5rem">
+                                    Update
+                                </a>
+
+                                <form action="/delete-category/{{ $item->id }}" method="POST">
+                                    @csrf
+                                    <input type="submit" value="Delete" class="red-btn">
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </div>

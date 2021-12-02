@@ -1,4 +1,8 @@
-@extends('layouts.admin-app')
+@extends('layouts.app')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+@endsection
 
 @section('title')
     <title>Insert New Product</title>
@@ -15,10 +19,10 @@
                 <textarea name="description" id="" rows="4" placeholder="Product Description"></textarea>
                 <input type="text" placeholder="Product Price" name="price"><br>
                 <label for="product-cat">Product Category</label> <br>
-                <select name="category" id="product-cat"> 
+                <select name="category" id="product-cat">
                     <option value="" selected disabled hidden>Choose One</option>
                     @foreach ($categories as $item)
-                        <option value= "{{ $item->id }}" >{{ $item->name }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                 <br>
@@ -28,7 +32,7 @@
                 </label>
                 <input type="file" id="choose-file" name="image">
                 <br>
-                
+
                 <input type="submit" value="Add" class="add-btn">
             </form>
         </div>

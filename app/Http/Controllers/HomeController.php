@@ -31,22 +31,4 @@ class HomeController extends Controller
         ];
         return view('index', $data);
     }
-
-    public function memberIndex(){
-        $allProduct = Product::paginate(6);
-
-        $data = [
-            'products' => $allProduct
-        ];
-        return view('member-index', $data);
-    }
-
-    public function adminIndex(){
-        $allProduct = Product::paginate(6);
-
-        $data = [
-            'products' => $allProduct
-        ];
-        return view('admin-index', $data);
-    }
 }

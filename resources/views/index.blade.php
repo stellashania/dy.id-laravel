@@ -1,4 +1,8 @@
-@extends('layouts.guest-app')
+@extends('layouts.app')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+@endsection
 
 @section('title')
     <title>Guest Home</title>
@@ -16,7 +20,7 @@
                 @foreach ($products as $item)
                     <div class="product">
                         <div class="product-img">
-                            <img src="./storage/products/{{$item->image}}" alt="">
+                            <img src="./storage/products/{{ $item->image }}" alt="">
                         </div>
 
                         <div class="product-desc flex space-between">
@@ -25,7 +29,7 @@
                         </div>
 
                         <div class="product-price">
-                            <p>IDR. {{$item->price}}</p>
+                            <p>IDR. {{ $item->price }}</p>
                         </div>
 
                         <div class="product-detail-btn">
@@ -37,11 +41,8 @@
                 @endforeach
 
             </div>
-            {{$products->links('vendor.pagination.custom')}}
+            {{-- {{ $products->links('vendor.pagination.custom') }} --}}
+            {{ $products->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @endsection
-
-{{-- @section('style')
-    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-@endsection --}}

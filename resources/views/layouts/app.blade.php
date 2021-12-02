@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +18,18 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" > --}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}"> --}}
+
+    @yield('styles')
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
- 
+
 </head>
+
 <body>
     <div id="app">
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -78,7 +85,9 @@
                 </div>
             </div>
         </nav> --}}
-        <div class="header-top">
+
+        {{-- ori --}}
+        {{-- <div class="header-top">
             @include('layouts.top-header')
         </div>
     
@@ -90,8 +99,32 @@
         </main>
         <div class="footer">
             @include('layouts.footer')
+        </div> --}}
+        {{-- ori --}}
+
+        <div class="header-top">
+            @include('layouts.top-header')
         </div>
-        
+
+        <div class="header-menu">
+            @if (isset(Auth::user()->id))
+                @if (Auth::user()->role == 'member')
+                    @include('layouts.member-bottom-header')
+                @elseif(Auth::user()->role == 'admin')
+                    @include('layouts.admin-bottom-header')
+                @endif
+            @else
+                @include('layouts.bottom-header')
+            @endif
+        </div>
+
+        @yield('content')
+
+        <div class="footer">
+            @include('layouts.footer')
+        </div>
+
     </div>
 </body>
+
 </html>

@@ -1,4 +1,8 @@
-@extends('layouts.member-app')
+@extends('layouts.app')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+@endsection
 
 @section('title')
     <title>Edit Cart</title>

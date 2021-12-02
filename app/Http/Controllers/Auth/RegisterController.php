@@ -29,7 +29,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::LOGIN;
+    // protected $redirectTo = RouteServiceProvider::LOGIN;
+    // protected $redirectTo = '/login';
+
+    public function redirectTo()
+    {
+        return '/';
+    }
 
     /**
      * Create a new controller instance.
@@ -56,7 +62,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'role' => ['required', 'string', 'max:255'],
-            'agreement' => ['accepted']
+            // 'agreement' => ['accepted']
         ]);
     }
 

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Login Controller
     |--------------------------------------------------------------------------
@@ -20,37 +20,40 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+  use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    public function redirectTo() {
-        $role = Auth::user()->role; 
-        switch ($role) {
-          case 'admin':
-            return '/admin-index';
-            break;
-          case 'member':
-            return '/member-index';
-            break; 
-      
-          default:
-            return '/index'; 
-          break;
-        }
-    }
+  /**
+   * Where to redirect users after login.
+   *
+   * @var string
+   */
+  // protected $redirectTo = RouteServiceProvider::HOME;
+  public function redirectTo()
+  {
+    // $role = Auth::user()->role; 
+    // switch ($role) {
+    //   case 'admin':
+    //     return '/admin-index';
+    //     break;
+    //   case 'member':
+    //     return '/member-index';
+    //     break; 
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+    //   default:
+    //     return '/index'; 
+    //   break;
+    // }
+
+    return '/';
+  }
+
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('guest')->except('logout');
+  }
 }

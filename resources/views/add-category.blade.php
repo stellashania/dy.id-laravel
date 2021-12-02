@@ -1,4 +1,8 @@
-@extends('layouts.admin-app')
+@extends('layouts.app')
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+@endsection
 
 @section('title')
     <title>Insert New Category</title>
@@ -18,4 +22,3 @@
     </div>
 
 @endsection
-
