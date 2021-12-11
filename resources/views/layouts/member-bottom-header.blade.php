@@ -3,7 +3,7 @@
         <ul>
             <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
             <li><a href="/view-cart/{{ Auth::user()->id }}">My Cart</a></li>
-            <li><a href="#">History Transaction</a></li>
+            <li><a href="/history-transaction">History Transaction</a></li>
         </ul>
     </div>
 

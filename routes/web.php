@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,15 @@ Route::post('/add-cart-item', [CartDetailController::class, 'addItem']);
 Route::post('/delete-cart-item/{cart_id}/{product_id}', [CartDetailController::class, 'deleteItem']);
 Route::get('/update-cart-item/{cart_id}/{product_id}', [CartDetailController::class, 'getUpdateItemPage']);
 Route::post('/update-cart-item/{cart_id}/{product_id}', [CartDetailController::class, 'updateItem']);
+
+// TRANSACTION
+Route::post('/checkout/{cart_id}', [TransactionController::class, 'checkout']);
+
+// Route::get('/history-transaction', function () {
+//     return view('history-transaction');
+// });
+
+Route::get('/history-transaction', [TransactionController::class, 'displayAll']);
 
 // AUTH
 Auth::routes();

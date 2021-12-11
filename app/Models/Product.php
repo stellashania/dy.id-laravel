@@ -12,7 +12,7 @@ class Product extends Model
 
     public function transactions()
     {
-        return $this->belongsToMany(Transaction::class, 'TransactionDetail')
+        return $this->belongsToMany(Transaction::class, 'transaction_details')
             ->withPivot('quantity');
     }
 

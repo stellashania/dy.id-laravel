@@ -18,10 +18,15 @@
             @php
                 $ttlPrice = 0;
                 $idx = 0;
+                $cart_id = 0;
             @endphp
 
             @foreach ($cart as $item)
                 {{-- {{ dd($item->id) }} --}}
+                @php
+                    $cart_id = $item->id;
+                @endphp
+
                 @foreach ($item->products as $i)
                     @php
                         $idx++;
@@ -80,7 +85,8 @@
                 </div>
 
                 <div>
-                    <form action="#" method="POST">
+                    {{-- jgn lupa passing cart_id nya --}}
+                    <form action="/checkout/{{ $cart_id }}" method="POST">
                         @csrf
                         <input type="submit" value="Checkout ({{ $idx }})" class="yellow-btn">
                     </form>
