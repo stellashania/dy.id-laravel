@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,7 +36,7 @@ class RegisterController extends Controller
 
     public function redirectTo()
     {
-        return '/';
+        return '/login';
     }
 
     /**
@@ -74,13 +76,69 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'gender' => $data['gender'],
-            'address' => $data['address'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'role' => $data['role']
-        ]);
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'gender' => $data['gender'],
+        //     'address' => $data['address'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'role' => $data['role']
+        // ]);
+
+        // TESTING PURPOSES
+        if ($data['role'] == "member") {
+            // $user = User::create([
+            //     'name' => $data['name'],
+            //     'gender' => $data['gender'],
+            //     'address' => $data['address'],
+            //     'email' => $data['email'],
+            //     'password' => Hash::make($data['password']),
+            //     'role' => $data['role']
+            // ]);
+
+            // return [Cart::create([
+            //     'customer_id' => $user->id
+            // ]), $user];
+
+            // return [
+            //     User::create([
+            //         'name' => $data['name'],
+            //         'gender' => $data['gender'],
+            //         'address' => $data['address'],
+            //         'email' => $data['email'],
+            //         'password' => Hash::make($data['password']),
+            //         'role' => $data['role']
+            //     ]),
+
+            //     Cart::create([
+            //         'customer_id' => $user->id
+            //     ])
+            // ];
+
+            $user = User::create([
+                'name' => $data['name'],
+                'gender' => $data['gender'],
+                'address' => $data['address'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'role' => $data['role']
+            ]);
+
+            Cart::create([
+                'user_id' => $user->id
+            ]);
+
+            return $user;
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'gender' => $data['gender'],
+                'address' => $data['address'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'role' => $data['role']
+            ]);
+        }
+        // TESTING PURPOSES
     }
 }

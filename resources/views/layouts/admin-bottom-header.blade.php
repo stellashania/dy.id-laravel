@@ -1,7 +1,7 @@
 <div class="wrapper flex space-between">
     <div class="header-menu-left">
         <ul>
-            <li><a href="admin-index" class="{{ request()->is('admin-index') ? 'active' : '' }}">Home</a></li>
+            <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
             <div class="dropdown-menu">
                 <li><a href="#">Manage Product ▼</a></li>
 

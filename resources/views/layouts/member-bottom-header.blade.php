@@ -1,8 +1,8 @@
 <div class="wrapper flex space-between">
     <div class="header-menu-left">
         <ul>
-            <li><a href="/member-index" class="{{ request()->is('member-index') ? 'active' : '' }}">Home</a></li>
-            <li><a href="#">My Cart</a></li>
+            <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
+            <li><a href="/view-cart/{{ Auth::user()->id }}">My Cart</a></li>
             <li><a href="#">History Transaction</a></li>
         </ul>
     </div>

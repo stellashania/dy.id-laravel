@@ -42,15 +42,6 @@
                         <td style="width: 6%">{{ $item->category->name }}</td>
                         <td style="width: 15%">
 
-                            {{-- <a href="/edit-product/{{ $item->id }}" class="yellow-btn">
-                            Update
-                        </a>
-
-                        <form action="/delete-product/{{ $item->id }}" method="POST">
-                            @csrf
-                            <input type="submit" value="Delete" class="red-btn">
-                        </form> --}}
-
                             <div class="flex">
                                 <a href="/edit-product/{{ $item->id }}" class="yellow-btn"
                                     style="margin-right: 0.5rem; padding-bottom: 0rem">

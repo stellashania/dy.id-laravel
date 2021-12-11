@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
@@ -49,7 +50,11 @@ Route::get('/edit-category/{id}', [CategoryController::class, 'getEditCategoryPa
 Route::post('/edit-category/{id}', [CategoryController::class, 'editCategory']);
 
 // CART
-Route::get('/view-cart', [CartController::class, 'displayAll']);
+Route::get('/view-cart/{id}', [CartController::class, 'displayAll']);
+Route::post('/add-cart-item', [CartDetailController::class, 'addItem']);
+Route::post('/delete-cart-item/{cart_id}/{product_id}', [CartDetailController::class, 'deleteItem']);
+Route::get('/update-cart-item/{cart_id}/{product_id}', [CartDetailController::class, 'getUpdateItemPage']);
+Route::post('/update-cart-item/{cart_id}/{product_id}', [CartDetailController::class, 'updateItem']);
 
 // AUTH
 Auth::routes();

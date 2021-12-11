@@ -14,34 +14,35 @@
         <div class="detail-product-wrapper flex">
             <div class="detail-product-left">
                 <div class="detail-product-img">
-                    <img src="assets/samsungtv1.jpg" alt="">
+                    <img src="/storage/products/{{ $product->image }}" alt="">
                 </div>
             </div>
 
             <div class="detail-product-right">
                 <div class="detail-product-contents">
                     <div class="detail-product-content">
-                        <h2>Samsung TV</h2>
+                        <h2>{{ $product->name }}</h2>
                     </div>
 
                     <hr>
 
                     <div class="detail-product-content">
                         <h3>Price:</h3>
-                        <p>IDR. 20.000.000</p>
+                        <p>IDR. {{ $product->price }}</p>
                     </div>
 
                     <hr>
 
                     <div class="detail-product-content">
                         <h3>Description:</h3>
-                        <p>Witness the high quality TV with new technology from Samsung</p>
+                        <p>{{ $product->description }}</p>
                     </div>
                     <hr>
                 </div>
 
                 <div class="detail-product-btn">
-                    <form action="">
+                    <form action="/update-cart-item/{{ $cart_id }}/{{ $product->id }}" method="POST">
+                        @csrf
                         <label for="qty">Qty:</label>
                         <input type="text" id="qty" name="qty">
                         <input type="submit" value="Save" class="yellow-btn">

@@ -49,9 +49,14 @@
                         </div>
 
                         <div class="detail-product-btn">
-                            <form action="">
+                            <form action="/add-cart-item" method="POST">
+                                @csrf
+
                                 <label for="qty">Qty:</label>
                                 <input type="text" id="qty" name="qty">
+                                {{-- TESTING PURPOSES --}}
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                {{-- TESTING PURPOSES --}}
                                 <input type="submit" value="Add To Cart" class="yellow-btn">
                             </form>
                         </div>

@@ -24,7 +24,8 @@
                     <option value="" selected disabled hidden>Choose One</option>
                     @foreach ($categories as $item)
                         <option value="{{ $item->id }}" {{ $item->id == $product->category_id ? 'selected' : '' }}>
-                            {{ $item->name }}</option>
+                            {{ $item->name }}
+                        </option>
                     @endforeach
                 </select>
                 <br>

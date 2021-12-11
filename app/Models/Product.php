@@ -12,17 +12,18 @@ class Product extends Model
 
     public function transactions()
     {
-        return $this->belongsToMany('Transaction', 'TransactionDetail')
+        return $this->belongsToMany(Transaction::class, 'TransactionDetail')
             ->withPivot('quantity');
     }
 
     public function carts()
     {
-        return $this->belongsToMany('Cart', 'CartDetail')
+        return $this->belongsToMany(Cart::class, 'cart_details')
             ->withPivot('quantity');
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }
