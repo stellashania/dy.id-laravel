@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -57,6 +58,15 @@ class ProductController extends Controller
 
     public function addProduct(Request $request)
     {
+        $rules = Validator::make($request->all(), [
+            'name' => ['required', 'unique:products', 'min:5'],
+            'description' => ['required', 'min:50'],
+            'price' => ['required', 'numeric', 'gt:0'],
+            'category' => ['required'],
+            'image' => ['required', 'image', 'mimes:jpg']
+        ]);
+        $rules->validate();
+
         $product = new Product();
         $product->name = $request->name;
         $product->description = $request->description;
@@ -91,6 +101,15 @@ class ProductController extends Controller
 
     public function editProduct(Request $request)
     {
+        $rules = Validator::make($request->all(), [
+            'name' => ['required', 'unique:products', 'min:5'],
+            'description' => ['required', 'min:50'],
+            'price' => ['required', 'numeric', 'gt:0'],
+            'category' => ['required'],
+            'image' => ['required', 'image', 'mimes:jpg']
+        ]);
+        $rules->validate();
+
         $product = Product::find($request->id);
         $product->name = $request->name;
         $product->description = $request->description;

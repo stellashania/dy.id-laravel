@@ -15,7 +15,14 @@
 
             <form action="/add-category" method="POST" class="add-product form align-center">
                 @csrf
-                <input type="text" name="name" placeholder="Category Name"><br>
+                <input type="text" name="name" placeholder="Category Name" class="@error('name') is-invalid @enderror"><br>
+
+
+                @error('name')
+                    <div class="alert">{{ $message }}
+                    </div>
+                @enderror
+
                 <input type="submit" value="Add" class="add-btn">
             </form>
         </div>

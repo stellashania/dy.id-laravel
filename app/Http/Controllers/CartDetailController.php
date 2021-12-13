@@ -6,11 +6,17 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CartDetailController extends Controller
 {
     public function addItem(Request $request)
     {
+        $rules = Validator::make($request->all(), [
+            'qty' => ['required', 'gt:0']
+        ]);
+        $rules->validate();
+
         $cart_id = Auth()->user()->cart->id;
         $cart = Cart::find($cart_id);
         $product_id = $request->product_id;
@@ -45,6 +51,11 @@ class CartDetailController extends Controller
 
     public function updateItem(Request $request)
     {
+        $rules = Validator::make($request->all(), [
+            'qty' => ['required', 'gt:0']
+        ]);
+        $rules->validate();
+
         // dd($request->qty);
         // dd($cart = Cart::find($request->cart_id));
         $cart = Cart::find($request->cart_id);

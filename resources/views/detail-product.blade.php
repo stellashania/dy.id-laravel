@@ -53,7 +53,12 @@
                                 @csrf
 
                                 <label for="qty">Qty:</label>
-                                <input type="text" id="qty" name="qty">
+                                <input type="text" id="qty" name="qty" class="@error('qty') is-invalid @enderror">
+                                @error('qty')
+                                    <div class="alert">{{ $message }}
+                                    </div>
+                                @enderror
+
                                 {{-- TESTING PURPOSES --}}
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 {{-- TESTING PURPOSES --}}

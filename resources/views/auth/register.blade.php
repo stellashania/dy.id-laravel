@@ -65,8 +65,15 @@
                 </div>
 
                 <div class="terms-conditions">
-                    <input type="checkbox" id="agreement" value="Agree">
+                    <input type="checkbox" id="agreement" name="agreement" value="1"
+                        class="@error('agreement') is-invalid @enderror">
                     <label for="agreement">I agree with terms & conditions</label><br>
+                    @error('agreement')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
                 <button type="submit" class="yellow-btn" id="register-btn">
                     {{ __('Register') }}

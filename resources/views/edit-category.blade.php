@@ -14,9 +14,15 @@
         <div class="add-product-wrapper">
             <h2 class="blue-text left">Edit Category</h2>
 
-            <form action="/edit-category/{{ $category->id }}" method="POST" class="add-product form align-center">
+            <form action="/edit-category/{{ $category->id }}" method="POST"
+                class="add-product form align-center @error('name') is-invalid @enderror">
                 @csrf
                 <input type="text" name="name" placeholder="{{ $category->name }}"><br>
+                @error('name')
+                    <div class="alert">{{ $message }}
+                    </div>
+                @enderror
+
                 <input type="submit" value="Add" class="add-btn">
             </form>
         </div>

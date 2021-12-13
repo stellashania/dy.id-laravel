@@ -58,13 +58,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:5'],
             'gender' => ['required'],
             'address' => ['required', 'string', 'min:10'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'role' => ['required', 'string', 'max:255'],
-            // 'agreement' => ['accepted']
+            'agreement' => ['accepted']
         ]);
     }
 
@@ -87,34 +87,6 @@ class RegisterController extends Controller
 
         // TESTING PURPOSES
         if ($data['role'] == "member") {
-            // $user = User::create([
-            //     'name' => $data['name'],
-            //     'gender' => $data['gender'],
-            //     'address' => $data['address'],
-            //     'email' => $data['email'],
-            //     'password' => Hash::make($data['password']),
-            //     'role' => $data['role']
-            // ]);
-
-            // return [Cart::create([
-            //     'customer_id' => $user->id
-            // ]), $user];
-
-            // return [
-            //     User::create([
-            //         'name' => $data['name'],
-            //         'gender' => $data['gender'],
-            //         'address' => $data['address'],
-            //         'email' => $data['email'],
-            //         'password' => Hash::make($data['password']),
-            //         'role' => $data['role']
-            //     ]),
-
-            //     Cart::create([
-            //         'customer_id' => $user->id
-            //     ])
-            // ];
-
             $user = User::create([
                 'name' => $data['name'],
                 'gender' => $data['gender'],

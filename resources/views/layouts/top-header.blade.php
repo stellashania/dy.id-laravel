@@ -9,8 +9,8 @@
     </div>
 
     <div class="search-bar">
-        <form action="">
-            <input type="text" name="search-bar" placeholder="Search product...">
+        <form action="/search" method="GET">
+            <input type="text" name="search" placeholder="Search product...">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>

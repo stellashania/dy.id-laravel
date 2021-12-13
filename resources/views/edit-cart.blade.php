@@ -44,7 +44,12 @@
                     <form action="/update-cart-item/{{ $cart_id }}/{{ $product->id }}" method="POST">
                         @csrf
                         <label for="qty">Qty:</label>
-                        <input type="text" id="qty" name="qty">
+                        <input type="text" id="qty" name="qty" class="@error('qty') is-invalid @enderror">
+                        @error('qty')
+                            <div class="alert">{{ $message }}
+                            </div>
+                        @enderror
+
                         <input type="submit" value="Save" class="yellow-btn">
                     </form>
                 </div>
