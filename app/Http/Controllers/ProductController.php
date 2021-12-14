@@ -102,7 +102,7 @@ class ProductController extends Controller
     public function editProduct(Request $request)
     {
         $rules = Validator::make($request->all(), [
-            'name' => ['required', 'unique:products', 'min:5'],
+            'name' => ['required', 'unique:products,name,' . $request->id, 'min:5'],
             'description' => ['required', 'min:50'],
             'price' => ['required', 'numeric', 'gt:0'],
             'category' => ['required'],
@@ -134,7 +134,10 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->back();
+
+        //redirect to view products
+        // return redirect()->back();
+        return redirect()->route('view-product');
     }
 
     public function deleteProduct(Request $request)

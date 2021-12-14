@@ -16,21 +16,21 @@
             <form action="/edit-product/{{ $product->id }}" method="post" enctype="multipart/form-data"
                 class="add-product form align-center">
                 @csrf
-                <input type="text" placeholder="{{ $product->name }}" name="name"
+                <input type="text" name="name" value="{{ old('name') ?? $product->name }}"
                     class="@error('name') is-invalid @enderror"><br>
                 @error('name')
                     <div class="alert">{{ $message }}
                     </div>
                 @enderror
 
-                <textarea name="description" id="" rows="4" placeholder="{{ $product->description }}"
-                    class="@error('description') is-invalid @enderror"></textarea>
+                <textarea name="description" id="" rows="6"
+                    class="@error('description') is-invalid @enderror">{{ old('description') ?? $product->description }}</textarea>
                 @error('description')
                     <div class="alert">{{ $message }}
                     </div>
                 @enderror
 
-                <input type="text" placeholder="{{ $product->price }}" name="price"
+                <input type="text" name="price" value="{{ old('price') ?? $product->price }}"
                     class="@error('price') is-invalid @enderror"><br>
                 @error('price')
                     <div class="alert">{{ $message }}

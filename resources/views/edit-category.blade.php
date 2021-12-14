@@ -17,13 +17,13 @@
             <form action="/edit-category/{{ $category->id }}" method="POST"
                 class="add-product form align-center @error('name') is-invalid @enderror">
                 @csrf
-                <input type="text" name="name" placeholder="{{ $category->name }}"><br>
+                <input type="text" name="name" value="{{ old('name') ?? $category->name }}"><br>
                 @error('name')
                     <div class="alert">{{ $message }}
                     </div>
                 @enderror
 
-                <input type="submit" value="Add" class="add-btn">
+                <input type="submit" value="Save" class="add-btn">
             </form>
         </div>
     </div>

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-    public function checkout(Request $request)
+    public function checkout()
     {
         // create new transaction
         $transaction = new Transaction();
@@ -24,10 +24,15 @@ class TransactionController extends Controller
 
         // dd($transaction);
         // add the cart detail to transaction detail
-        $cart = Cart::find($request->cart_id);
+        $cart_id = Auth()->user()->cart->id;
+        // $cart = Cart::find($request->cart_id);
+        $cart = Cart::find($cart_id);
+        // dd($cart);
 
         $products = $cart->products()->get(['product_id']);
         $quantity = $cart->products()->get(['quantity']);
+
+        // dd($products);
 
         for ($i = 0; $i < sizeof($products); $i++) {
             // dd($products[2]);
@@ -43,8 +48,8 @@ class TransactionController extends Controller
         //delete cart detail (detach)
         $cart->products()->detach();
 
-        // redirect
-        return redirect()->back();
+        // redirect to transaction history
+        return redirect()->route('history-transaction');
     }
 
     public function displayAll()

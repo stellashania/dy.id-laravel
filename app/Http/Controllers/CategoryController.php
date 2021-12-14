@@ -64,7 +64,10 @@ class CategoryController extends Controller
         $category->name = $request->name;
 
         $category->save();
-        return redirect()->back();
+
+        // redirect to view categories
+        // return redirect()->back();
+        return redirect()->route('view-category');
     }
 
     public function deleteCategory(Request $request)

@@ -63,7 +63,6 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'min:10'],
             'email' => ['required', 'string', 'email', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'role' => ['required', 'string', 'max:255'],
             'agreement' => ['accepted']
         ]);
     }
@@ -86,31 +85,49 @@ class RegisterController extends Controller
         // ]);
 
         // TESTING PURPOSES
-        if ($data['role'] == "member") {
-            $user = User::create([
-                'name' => $data['name'],
-                'gender' => $data['gender'],
-                'address' => $data['address'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'role' => $data['role']
-            ]);
+        // if ($data['role'] == "member") {
+        //     $user = User::create([
+        //         'name' => $data['name'],
+        //         'gender' => $data['gender'],
+        //         'address' => $data['address'],
+        //         'email' => $data['email'],
+        //         'password' => Hash::make($data['password']),
+        //         'role' => $data['role']
+        //     ]);
 
-            Cart::create([
-                'user_id' => $user->id
-            ]);
+        //     Cart::create([
+        //         'user_id' => $user->id
+        //     ]);
 
-            return $user;
-        } else {
-            return User::create([
-                'name' => $data['name'],
-                'gender' => $data['gender'],
-                'address' => $data['address'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'role' => $data['role']
-            ]);
-        }
+        //     return $user;
+        // } else {
+        //     return User::create([
+        //         'name' => $data['name'],
+        //         'gender' => $data['gender'],
+        //         'address' => $data['address'],
+        //         'email' => $data['email'],
+        //         'password' => Hash::make($data['password']),
+        //         'role' => $data['role']
+        //     ]);
+        // }
         // TESTING PURPOSES
+
+
+        $user = User::create([
+            'name' => $data['name'],
+            'gender' => $data['gender'],
+            'address' => $data['address'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'role' => 'member'
+        ]);
+
+        // dd($user);
+
+        Cart::create([
+            'user_id' => $user->id
+        ]);
+
+        return $user;
     }
 }

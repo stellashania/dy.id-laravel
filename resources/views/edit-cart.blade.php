@@ -41,6 +41,7 @@
                 </div>
 
                 <div class="detail-product-btn">
+                    {{-- <form action="/update-cart-item/{{ $cart_id }}/{{ $product->id }}" method="POST"> --}}
                     <form action="/update-cart-item/{{ $cart_id }}/{{ $product->id }}" method="POST">
                         @csrf
                         <label for="qty">Qty:</label>

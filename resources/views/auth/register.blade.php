@@ -56,13 +56,13 @@
                     autocomplete="new-password" placeholder="Confirm Password">
                 <br>
 
-                <label for="role">Role</label>
+                {{-- <label for="role">Role</label>
                 <div class="gender-radio">
                     <input type="radio" name="role" id="member" value="member">
                     <label for="member">Member</label>
                     <input type="radio" name="role" id="admin" value="admin">
                     <label for="admin">Admin</label>
-                </div>
+                </div> --}}
 
                 <div class="terms-conditions">
                     <input type="checkbox" id="agreement" name="agreement" value="1"
