@@ -12,7 +12,7 @@
     <div class="content">
         <div class="wrapper">
             <div class="content-title">
-                <h2>My Cart</h2>
+                <h2>My History Transaction</h2>
             </div>
 
             @foreach ($transactions as $transaction)
@@ -36,7 +36,7 @@
 
                             <div class="history-trans-item-contents">
                                 <div class="history-trans-item-content flex">
-                                    <h2>{{ $item->name }}</h2>
+                                    <h2 style="margin-right: .5rem">{{ $item->name }}</h2>
                                     <p>(IDR. {{ $item->price }})</p>
                                 </div>
 

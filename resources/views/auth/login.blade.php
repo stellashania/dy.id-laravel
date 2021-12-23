@@ -32,7 +32,7 @@
                 @enderror
 
                 <div class="remember-me-wrapper">
-                    <input type="checkbox" id="remember-me" value="remember">
+                    <input type="checkbox" id="remember-me" name="remember_me" value="1">
                     <label for="remember-me">Remember me</label><br>
                 </div>
 
