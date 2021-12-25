@@ -21,14 +21,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 // INDEX PAGE
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('/');
 
 // DETAIL PRODUCT PAGE
 Route::get('/detail-product/{id}', [ProductController::class, 'getDetailProduct']);
 
 // GUEST LOGIN AND REGISTER
-Route::get('/login', [PagesController::class, 'login']);
-Route::get('/register', [PagesController::class, 'register']);
+Route::get('/login', [PagesController::class, 'login'])->name('login');
+Route::get('/register', [PagesController::class, 'register'])->name('register');
 
 // VIEW, ADD, UPDATE, DELETE PRODUCT
 Route::get('/view-product', [ProductController::class, 'displayAll'])->middleware('role:admin')->name('view-product');

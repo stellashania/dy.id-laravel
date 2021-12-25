@@ -35,8 +35,11 @@ class CartController extends Controller
 
         // dd($cart::with('products')->get());
 
-        $cart = $chosen_cart::with('products')->get();
+        // $cart = $chosen_cart::with('products')->get();
+        // dd($cart);
 
-        return view('view-cart', compact('cart'));
+        // return view('view-cart', compact('cart'));
+        // dd($chosen_cart);
+        return view('view-cart', compact('chosen_cart'));
     }
 }

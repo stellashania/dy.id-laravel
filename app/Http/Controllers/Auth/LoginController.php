@@ -55,28 +55,51 @@ class LoginController extends Controller
     $this->middleware('guest')->except('logout');
   }
 
-  // protected function sendLoginResponse(Request $request)
-  // {
+  protected function sendLoginResponse(Request $request)
+  {
 
-  //   $remember_me = $request->has('remember_me') ? true : false;
+    $remember_me = $request->has('remember_me') ? true : false;
 
-  //   if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me)) {
-  //     // 5 hrs
-  //     $expiredTime = 300;
-  //     $tokenName = Auth::getRecallername();
-  //     Cookie::queue($tokenName, Cookie::get($tokenName), $expiredTime);
+    // if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me)) {
+    //   // 5 hrs
+    //   $expiredTime = 300;
+    //   $tokenName = Auth::getRecallername();
+    //   Cookie::queue($tokenName, Cookie::get($tokenName), $expiredTime);
 
-  //     $request->session()->regenerate();
+    //   $request->session()->regenerate();
 
-  //     $this->clearLoginAttempts($request);
+    //   $this->clearLoginAttempts($request);
 
-  //     if ($response = $this->authenticated($request, $this->guard()->user())) {
-  //       return $response;
-  //     }
+    //   // // test
+    //   // $user = User::where(["email" => $request->input('email')])->first();
+    //   // Auth::login($user, $remember_me);
+    //   // // test
 
-  //     return $request->wantsJson()
-  //       ? new JsonResponse([], 204)
-  //       : redirect()->intended($this->redirectPath());
-  //   }
-  // }
+    //   if ($response = $this->authenticated($request, $this->guard()->user())) {
+    //     return $response;
+    //   }
+
+    //   return $request->wantsJson()
+    //     ? new JsonResponse([], 204)
+    //     : redirect()->intended($this->redirectPath());
+    // }
+
+    if ($request->remember_me == 1) {
+      // 5 hrs
+      $expiredTime = 300;
+      $tokenName = Auth::getRecallername();
+      Cookie::queue($tokenName, Cookie::get($tokenName), $expiredTime);
+    }
+    $request->session()->regenerate();
+
+    $this->clearLoginAttempts($request);
+
+    if ($response = $this->authenticated($request, $this->guard()->user())) {
+      return $response;
+    }
+
+    return $request->wantsJson()
+      ? new JsonResponse([], 204)
+      : redirect()->intended($this->redirectPath());
+  }
 }

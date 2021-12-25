@@ -20,7 +20,7 @@
                 @foreach ($products as $item)
                     <div class="product">
                         <div class="product-img">
-                            <img src="./storage/products/{{ $item->image }}" style="width: 98%" alt="">
+                            <img src="./storage/products/{{ $item->image }}" style="width: 95%; height:16rem" alt="">
                         </div>
 
                         <div class="product-desc flex space-between">
