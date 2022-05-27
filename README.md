@@ -15,6 +15,7 @@ The DY.ID web app project is a group project for the laboratory class of the Web
 - Laravel
 - HTML5
 - CSS
+- JavaScript
 - PHP
 - Bootstrap
 - XAMPP (with MySQL database)
