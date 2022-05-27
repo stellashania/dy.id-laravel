@@ -1,64 +1,52 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## DY.ID
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The DY.ID web app project is a group project for the laboratory class of the Web Programming course. The web app is created for DY.ID, an imaginary e-commerce company, and features different functionalities for visitors, members, and admins. The website allows visitors to only view the existing products of the product. As for members, they can view and also order thhe produccts. Lastly, the admins can manage the categories and products.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
+- Visitor: View products and product details.
+- Member: View products and product details, Order, Cart, and Transaction History.
+- Admin: View products and product details, Manage Product (View, Add, Update, and Delete Product), and Manage Category (View, Add, Update, Delete Category).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Tools
+- Laravel
+- HTML5
+- CSS
+- PHP
+- Bootstrap
+- XAMPP (with MySQL database)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Screenshots
+- Home 
+![1](https://user-images.githubusercontent.com/79920236/170665471-9f00aa22-9cd6-4b4f-8316-92b78bcbfab6.png)
 
-### Premium Partners
+- Product Detail
+![5](https://user-images.githubusercontent.com/79920236/170665492-b53fe7d1-6b7b-42ca-a89c-66270a99d391.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- History Transaction
+![2](https://user-images.githubusercontent.com/79920236/170665530-d38685cb-d9bd-472c-bb91-903df57bab31.png)
 
-## Contributing
+- Manage Category
+![4](https://user-images.githubusercontent.com/79920236/170665593-8fc62324-7ae6-4267-b1fe-f1fd73a164a9.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Manage Product
+![3](https://user-images.githubusercontent.com/79920236/170665609-67937c70-3865-456f-9d3b-8144f534cdb8.png)
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+### How to Run the App
+- Required apps to install: XAMPP, Composer, Node.js
+- Pull the project
+- Start Apache and MySQL in XAMPP
+- Create an .env file and edit the values (DB Host, DB Port, etc.) based on your setup
+- Create a MySQL database with the same name as the ```DB_DATABASE``` value in the .env file of the project, which is "scananddine".
+- Run ```composer update``` to update dependencies
+- Run ```php artisan migrate --seed``` to create the tables and seed the data into the database
+- Run ```php artisan storage:link``` to link the storage
+- Run ```php artisan serve``` to run the app
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
