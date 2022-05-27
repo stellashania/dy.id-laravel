@@ -1,6 +1,6 @@
 ## DY.ID
 
-The DY.ID web app project is a group project for the laboratory class of the Web Programming course. The web app is created for DY.ID, an imaginary e-commerce company, and features different functionalities for visitors, members, and admins. The website allows visitors to only view the existing products of the product. As for members, they can view and also order thhe produccts. Lastly, the admins can manage the categories and products.
+The DY.ID web app project is a group project for the laboratory class of the Web Programming course. The web app is created for DY.ID, an imaginary e-commerce company, and features different functionalities for visitors, members, and admins. The website allows visitors to only view the existing products of the product. As for members, they can view and also order the produccts. Lastly, the admins can manage the categories and products.
 
 
 
